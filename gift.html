@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift for You</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fffbf0, #ffffff);
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+            padding: 50px;
+            position: relative;
+        }
+        h1 {
+            color: #504c4a;
+            font-size: 2.5em; /* Slightly larger for more impact */
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        p {
+            color: #4e4e4e;
+            font-size: 1.2em; /* Slightly larger for readability */
+            margin-top: 5px;
+        }
+        .island {
+            background-color: #ffffff;
+            width: 320px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            border: 2px solid #6b4f3d; /* Darker border for emphasis */
+            background-clip: padding-box;
+            animation: glowing-border 5s linear infinite;
+        }
+        .island:hover {
+            transform: scale(1.05);
+        }
+        .island h2 {
+            margin: 0;
+            font-size: 1.6em; /* Increased size for headings */
+            color: #77726e; /* Consistent with theme */
+        }
+        .island p {
+            margin: 8px 0;
+            font-size: 1.1em; /* Adjusted for readability */
+            color: #4e4e4e;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #333;
+            background: rgba(255, 223, 168, 0.3); /* Light highlight background */
+            padding: 2px 5px; /* Padding for emphasis */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .back-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em; /* Slightly larger for emphasis */
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #555; /* Darker on hover */
+        }
+
+        /* Floating stars */
+        .floating-star {
+            position: absolute;
+            background-color: rgba(255, 255, 240, 0.6);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        .star1 { width: 8px; height: 8px; top: 10%; left: 20%; animation-delay: 0s; }
+        .star2 { width: 7px; height: 7px; top: 50%; left: 75%; animation-delay: 2s; }
+        .star3 { width: 10px; height: 10px; top: 80%; left: 30%; animation-delay: 4s; }
+        .star4 { width: 9px; height: 9px; top: 25%; left: 90%; animation-delay: 6s; }
+        .star5 { width: 8px; height: 8px; top: 15%; left: 40%; animation-delay: 8s; }
+
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Glowing border animation */
+        @keyframes glowing-border {
+            0% { border-color: #ffeab3; }
+            50% { border-color: #fff9e6; }
+            100% { border-color: #ffeab3; }
+        }
+        
+        /* Background shapes */
+        .background-shape {
+            position: absolute;
+            opacity: 0.1; /* Light opacity for subtle effect */
+            z-index: 0; /* Behind other elements */
+        }
+        .shape1 {
+            width: 150px;
+            height: 150px;
+            background: rgba(107, 79, 61, 0.1);
+            border-radius: 50%;
+            top: 30%;
+            left: 15%;
+            transform: rotate(30deg);
+        }
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: rgba(107, 79, 61, 0.1);
+            border-radius: 50%;
+            top: 60%;
+            right: 10%;
+            transform: rotate(-15deg);
+        }
+        .shape3 {
+            width: 250px;
+            height: 250px;
+            background: rgba(107, 79, 61, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+    <div class="background-shape shape3"></div>
+
+    <h1>Gift for You!</h1>
+    <p>This is a special gift page.</p>
+
+    <!-- Floating stars around the island -->
+    <div class="floating-star star1"></div>
+    <div class="floating-star star2"></div>
+    <div class="floating-star star3"></div>
+    <div class="floating-star star4"></div>
+    <div class="floating-star star5"></div>
+
+    <!-- Island with login details -->
+    <div class="island">
+        <h2>Put This On Roblox and Join <span class="highlight">Blox Fruits</span></h2>
+        <p>Username: <span class="highlight">wydsadszs</span></p>
+        <p>Password: <span class="highlight">lastminuitesave</span></p>
+    </div>
+
+    <a href="index.html" class="back-link">Go back</a>
+</body>
+</html>

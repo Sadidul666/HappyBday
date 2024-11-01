@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: auto;
+            background-color: #fffefa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 5rem;
+            color: #504f4b;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow-y: scroll;
+            padding-bottom: 1500px; /* Extend the page height */
+        }
+        header {
+            width: 100%;
+            max-width: 1200px;
+            height: 60px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 1);
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid #ffedcc;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-left {
+            display: flex;
+            gap: 20px;
+        }
+        .header-left a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        .header-left a:hover {
+            color: #ffe5b4;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-right a {
+            text-decoration: none;
+            color: #333;
+        }
+        .text {
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fontChange 5s infinite;
+            text-shadow: 0 0 15px rgba(238, 255, 0, 0.1);
+        }
+        .when-section, .where-section, .how-section {
+            position: absolute;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #333;
+            max-width: 800px;
+            padding: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+        .when-section { top: 300px; }
+        .where-section { top: 607px; }
+        .how-section { top: 880px; }
+
+        .line {
+            position: absolute;
+            width: 70%;
+            height: 5px;
+            background-color: #535353;
+            left: 15%;
+            animation: drawLine 2.5s infinite;
+        }
+        .line1 { top: 576px; }
+        .line2 { top: 840px; }
+
+        .when-title, .where-title, .how-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .shape {
+            position: absolute;
+            background: rgba(255, 249, 221, 0.151);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: float 3s ease-in-out infinite;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(143, 143, 143, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes drawLine {
+            0% { transform: scaleX(0); }
+            50% { transform: scaleX(1); }
+            100% { transform: scaleX(0); }
+        }
+
+        @keyframes fontChange {
+            0% { font-family: 'Cabin', sans-serif; font-style: normal; }
+            2% { font-family: 'Dancing Script', cursive; }
+            4% { font-family: 'Dancing Script', cursive; }
+            6% { font-family: 'Tahoma', sans-serif; }
+            8% { font-family: 'Courier New', monospace; }
+            10% { font-family: 'Cabin', monospace; }
+            12% { font-family: 'Dancing Script', cursive; }
+            14% { font-family: 'Segoe UI', sans-serif; }
+            16% { font-family: 'Roboto', sans-serif; }
+            18% { font-family: 'Cabin', sans-serif; }
+            20% { font-family: 'Poppins', sans-serif; }
+            22% { font-family: 'Indie Flower', sans-serif; }
+            24% { font-family: 'Lato', sans-serif; }
+            26% { font-family: 'Cabin', sans-serif; }
+            28% { font-family: 'Dancing Script', cursive; }
+            30% { font-family: 'Cabin', sans-serif; }
+            32% { font-family: 'Raleway', sans-serif; }
+            34% { font-family: 'Oswald', sans-serif; }
+            36% { font-family: 'Quicksand', sans-serif; }
+            38% { font-family: 'Dancing Script', cursive; }
+            40% { font-family: 'Muli', sans-serif; }
+            42% { font-family: 'Cabin', sans-serif; }
+            44% { font-family: 'Work Sans', sans-serif; }
+            46% { font-family: 'Play', sans-serif; }
+            48% { font-family: 'Cabin', sans-serif; }
+            50% { font-family: 'Dancing Script', cursive; }
+            52% { font-family: 'Ubuntu', sans-serif; }
+            54% { font-family: 'Dosis', sans-serif; }
+            56% { font-family: 'Lora', serif; }
+            58% { font-family: 'Indie Flower', serif; }
+            60% { font-family: 'Varela Round', sans-serif; }
+            62% { font-family: 'Indie Flower', cursive; }
+            64% { font-family: 'Dancing Script', cursive; }
+            66% { font-family: 'Dancing Script', cursive; }
+            68% { font-family: 'Zilla Slab', serif; }
+            70% { font-family: 'Crimson Text', serif; }
+            72% { font-family: 'Caveat', cursive; }
+            74% { font-family: 'Cinzel', serif; }
+            76% { font-family: 'Abril Fatface', serif; }
+            78% { font-family: 'Cabin', sans-serif; }
+            80% { font-family: 'Dancing Script', cursive; }
+            82% { font-family: 'Sacramento', cursive; }
+            84% { font-family: 'Righteous', sans-serif; }
+            86% { font-family: 'Alegreya', serif; }
+            88% { font-family: 'Dancing Script', cursive; }
+            90% { font-family: 'Spectral', serif; }
+            92% { font-family: 'Dancing Script', cursive; }
+            94% { font-family: 'Cabin', sans-serif; }
+            96% { font-family: 'Be Vietnam', sans-serif; }
+            98% { font-family: 'Dancing Script', cursive; }
+            100% { font-family: 'Dancing Script', cursive; }
+        }
+
+        /* Fade-in effect */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="#when-section" onclick="playSound('when')">When?</a>
+            <a href="#where-section" onclick="playSound('where')">Where?</a>
+            <a href="#how-section" onclick="playSound('how')">How?</a>
+        </div>
+        <div class="header-right">
+            <a href="gift.html" style="text-decoration: none; color: #333;">
+                <span>Special Gift</span>
+                <img src="https://img.icons8.com/material-outlined/24/333333/gift.png" alt="Gift Icon" />
+            </a>
+        </div>
+    </header>
+    <div class="text">Bro</div>
+    <div class="when-section" id="when-section">
+        <div class="when-title">When?</div>
+        In 2022 March 3rd, when we were in class 5, it was the first day of Sadidul's school, and I got to sit beside someone I would end up sitting next to for the rest of my life and you were wearing that Bangladesh mask LOLO. I just wish we create more valuable memories together.
+    </div>
+    <div class="line line1"></div>
+    <div class="where-section" id="where-section">
+        <div class="where-title">Where?</div>
+        In Bangladesh, Chattogram, Agrabad, the girls section of our current school, LOLO bro, we live so close yet feel so far.
+    </div>
+    <div class="line line2"></div>
+    <div class="how-section" id="how-section">
+        <div class="how-title">How?</div>
+        Bro our telepathy got us together.
+    </div>
+    
+    <div class="shapes"></div>
+
+    <!-- Add audio elements -->
+    <audio id="when-sound" src="bro.mp3"></audio>
+    <audio id="where-sound" src="bro.mp3"></audio>
+    <audio id="how-sound" src="bro.mp3"></audio>
+
+    <div id="birthday-message" class="fade-in" style="position: absolute; bottom: 500px; width: 100%; text-align: center; font-size: 3.5rem; color: #333;">
+        Happy Birthday Mogger (im tweakin)
+    </div>
+
+    <script>
+        const shapesContainer = document.querySelector('.shapes');
+        const maxShapes = 25;
+        const containerWidth = window.innerWidth;
+        const containerHeight = window.innerHeight;
+
+        for (let i = 0; i < maxShapes; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            const width = Math.random() * 50 + 30;
+            const height = Math.random() * 50 + 30;
+            shape.style.width = `${width}px`;
+            shape.style.height = `${height}px`;
+            const left = Math.random() * (containerWidth - width);
+            const top = Math.random() * (containerHeight - height);
+            shape.style.left = `${left}px`;
+            shape.style.top = `${top}px`;
+            const rotation = Math.random() * 20 - 10;
+            shape.style.transform = `rotate(${rotation}deg)`;
+            shapesContainer.appendChild(shape);
+        }
+
+        function playSound(action) {
+            const sound = document.getElementById(`${action}-sound`);
+            if (sound) {
+                sound.currentTime = 0; // Reset sound to start
+                sound.play(); // Play sound
+            }
+        }
+
+        // Fade in the birthday message when scrolling
+        window.addEventListener('scroll', () => {
+            const birthdayMessage = document.getElementById('birthday-message');
+            const windowHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+            const messagePosition = birthdayMessage.getBoundingClientRect().top;
+
+            if (messagePosition < windowHeight) {
+                birthdayMessage.classList.add('visible');
+            }
+        });
+        
+    </script>
+</body>
+</html>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Animation</title>
+    <style>
+        /* Other styles remain unchanged */
+
+        #birthday-message {
+            position: absolute;
+            bottom: 100px; /* Adjusted to be slightly higher */
+            width: 100%;
+            text-align: center;
+            font-size: 6rem; /* Increased font size */
+            color: #5e5c55;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); /* Light gold shadow */
+        }
+    </style>
+</head>
+<body>
+    <!-- Existing HTML content -->
+
+    <div id="birthday-message" class="fade-in">Happy Birthday Mogger</div>
+
+    <script>
+        // Existing JavaScript content
+    </script>
+</body>
+</html>
